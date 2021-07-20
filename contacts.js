@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs').promises
 const path = require('path')
 
 const contactsPath = path.format({
@@ -6,27 +6,33 @@ const contactsPath = path.format({
   base: 'contacts.json'
 })
 
-const db = fs.readFileSync(`${contactsPath}`)
-
-const contacts = JSON.parse(db)
-
-function listContacts() {
-  return contacts
+async function listContacts() {
+  try {
+    const data = await fs.readFile(contactsPath)
+    return JSON.parse(data)
+  } catch (error) {
+    console.error(`Got an error trying to read the file: ${error.message}`)
+  }
 }
 
 function getContactById(contactId) {
-  return contacts.filter((el) => el.id === contactId)
+  return listContacts().then(r => r.filter(el => el.id === contactId))
 }
 
 function removeContact(contactId) {
-  // ...твой код
+  return listContacts().then(r => r.filter(el => el.id !== contactId))
 }
 
-// function addContact(name, email, phone) {
-//   // ...твой код
-// }
+async function addContact(name, email, phone) {
+  const id = Math.random()
+  const contact = { id: id, name: name, email: email, phone: phone }
+  const contacts = await listContacts()
+  const data = JSON.stringify([...contacts, contact], null, 2)
+  await fs.writeFile(contactsPath, data, (error) => {
+    if (error) throw error
+    console.log('saved')
+  })
+}
 module.exports = {
-  listContacts,
-  getContactById,
-  removeContact
+  listContacts, getContactById, removeContact, addContact
 }
