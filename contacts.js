@@ -19,7 +19,7 @@ async function listContacts() {
 async function getContactById(contactId) {
   try {
     const data = await listContacts()
-    const array = await data.filter(el => el.id === Number(contactId))
+    const array = data.filter(el => el.id === Number(contactId))
     return array
   } catch (error) {
     console.error(`Got an error trying to read the file: ${error.message}`)
