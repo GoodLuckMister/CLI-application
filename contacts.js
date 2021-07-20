@@ -29,8 +29,10 @@ async function getContactById(contactId) {
 async function removeContact(contactId) {
   try {
     const contacts = await listContacts()
-    const data = JSON.stringify(contacts.filter(el => el.id !== Number(contactId)), null, 2)
-    return await fs.writeFile(contactsPath, data, (error) => {
+    const data = contacts.filter(el => el.id !== Number(contactId))
+    console.table(contacts)
+    console.table(data)
+    return await fs.writeFile(contactsPath, JSON.stringify(data, null, 2), (error) => {
       if (error) throw error
     })
   } catch (error) {
@@ -43,8 +45,10 @@ async function addContact(name, email, phone) {
     const id = crypto.randomInt(0, 1000000)
     const contact = { id, name, email, phone }
     const contacts = await listContacts()
-    const data = JSON.stringify([...contacts, contact], null, 2)
-    return await fs.writeFile(contactsPath, data, (error) => {
+    const data = [...contacts, contact]
+    console.table(contacts)
+    console.table(data)
+    return await fs.writeFile(contactsPath, JSON.stringify(data, null, 2), (error) => {
       if (error) throw error
     })
   } catch (error) {
