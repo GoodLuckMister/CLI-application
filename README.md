@@ -1,11 +1,11 @@
 :boom: :boom: :boom: :boom: :boom: :boom: :boom: :boom: :boom::boom: :boom:
 
-![Alt-текст](https://ibb.co/L1f97fJ "Орк")
+![Alt-текст](https://i.ibb.co/kXFqCF9/1-2.png "Орк")
 
 :boom: :boom: :boom: :boom: :boom: :boom: :boom: :boom: :boom::boom: :boom:
 
-![Alt-текст](https://ibb.co/D4Xbsmq "Орк")
+![Alt-текст](https://i.ibb.co/2q26mRb/3.png "Орк")
 
 :boom: :boom: :boom: :boom: :boom: :boom: :boom: :boom: :boom::boom: :boom:
 
-![Alt-текст](https://ibb.co/VpjX0kd "Орк")
+![Alt-текст](https://i.ibb.co/WpxSNRQ/4.png "Орк")
