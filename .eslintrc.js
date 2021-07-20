@@ -12,5 +12,6 @@ module.exports = {
   rules: {
     'comma-dangle': 'off',
     'space-before-function-paren': ['error', 'never'],
+    indent: 'off',
   }
 }
